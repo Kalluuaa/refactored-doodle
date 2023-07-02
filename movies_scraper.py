@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 url_list = {}
-api_key = "648df3179eb800a1f2f96e23a433610fb625ec8a"
+api_key = "b285274b2af86317f070e2316e7ca711613348d4"
 
 
 def search_movies(query):
@@ -32,7 +32,7 @@ def get_movie(query):
         links = movie_page_link.find_all("a", {'rel': 'noopener', 'data-wpel-link': 'internal'})
         final_links = {}
         for i in links:
-            url = f"https://gtlink.co/api?api={api_key}&url={i['href']}"
+            url = f"https://old.omegalinks.in/api?api={api_key}&url={i['href']}"
             response = requests.get(url)
             link = response.json()
             final_links[f"{i.text}"] = link['shortenedUrl']
